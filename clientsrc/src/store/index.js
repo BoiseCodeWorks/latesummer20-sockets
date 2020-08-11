@@ -11,6 +11,7 @@ export default new Vuex.Store({
   state: {
     user: {},
     cars: [],
+    searchTerm: ""
   },
   mutations: {
     setUser(state, user) {
@@ -33,7 +34,11 @@ export default new Vuex.Store({
       if (index > -1) {
         state.cars.splice(index, 1, car)
       }
+    },
+    searchCars(state, searchTerm) {
+      state.searchTerm = searchTerm
     }
+
   },
   actions: {
     //#region -- AUTH STUFF --
@@ -51,6 +56,7 @@ export default new Vuex.Store({
         console.error(err)
       }
     },
+
     //#endregion
 
   },

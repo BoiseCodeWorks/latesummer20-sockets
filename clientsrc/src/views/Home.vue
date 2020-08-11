@@ -60,7 +60,14 @@ export default {
   },
   computed: {
     cars() {
-      return this.$store.state.cars;
+      return this.$store.state.cars.filter(
+        (c) =>
+          c.make.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          c.model.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    },
+    searchTerm() {
+      return this.$store.state.searchTerm;
     },
   },
   methods: {
